@@ -24,8 +24,8 @@ export default function Start() {
   }, []);
 
   return (
-    <main className="splash relative flex min-h-screen flex-col items-center w-full overflow-hidden">
-      <div className="one absolute h-screen w-full flex items-center justify-center bg-white">
+    <main className="splash relative flex h-screen flex-col items-center w-full overflow-hidden">
+      <div className="one absolute h-full w-full flex items-center justify-center bg-white">
         <a className="z-10" href="#" target="_blank">
           <svg
             width="193"
@@ -59,7 +59,7 @@ export default function Start() {
         </a>
         <div className="circle absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-0 h-0 rounded-[50%] bg-danger"></div>
       </div>
-      <div className="two z-10 opacity-0 absolute w-full h-screen">
+      <div className="two z-10 opacity-0 absolute w-full h-full">
         <Image
           src="/splash.png"
           alt="Splash"
