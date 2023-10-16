@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+}
+
+a.primary,
+button.primary {
+  border-radius: 8px;
+  background: linear-gradient(180deg, #ff114b 0%, #bc002e 100%);
+  box-shadow: 0px 4px 16px 0px rgba(255, 128, 54, 0.25);
+  display: flex;
+  padding: 8px 24px 8px 24px;
+  justify-content: center;
+  align-items: center;
+}
+
+.splash {
+  .splash-bottom {
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(10, 20, 69, 0.56) 47.4%,
+      #0a1445 97.92%
+    );
+  }
+}
