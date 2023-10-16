@@ -8,17 +8,30 @@ import gsap from "gsap";
 export default function Start() {
   useEffect(() => {
     const tl = gsap.timeline();
+    tl.to(".circle", {
+      duration: 1,
+      width: "1200px",
+      height: "1200px",
+    })
+      .to(".one", {
+        duration: 1,
+        opacity: 0,
+      })
+      .to(".two", {
+        duration: 1,
+        opacity: 1,
+      });
   }, []);
 
   return (
     <main className="splash relative flex min-h-screen flex-col items-center w-full">
-      <div className="one absolute z-10 h-screen w-full flex items-center justify-center bg-white">
+      <div className="one absolute h-screen w-full flex items-center justify-center bg-white">
         <a className="z-10" href="#" target="_blank">
           <img src="/logo.svg" alt="logo" />
         </a>
         <div className="circle absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-0 h-0 rounded-[50%] bg-danger"></div>
       </div>
-      <div className="two absolute w-full h-screen">
+      <div className="two z-10 opacity-0 absolute w-full h-screen">
         <Image
           src="/splash.png"
           alt="Splash"
@@ -46,7 +59,6 @@ export default function Start() {
               Design by EmaniUI
             </a>
           </div>
-       
         </div>
       </div>
     </main>
