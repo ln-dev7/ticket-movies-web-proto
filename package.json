@@ -9,8 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@splidejs/react-splide": "^0.7.12",
     "gsap": "^3.12.2",
-    "next": "13.5.5",
+    "next": "13.4.2",
     "react": "^18",
     "react-dom": "^18",
     "sass": "^1.69.3"
