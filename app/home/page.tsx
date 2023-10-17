@@ -122,22 +122,96 @@ export default function Home() {
                   alt="image"
                 />
                 <div className="absolute z-20 bg-white rounded-full bg-opacity-40 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center">
-                <svg width="59" height="59" viewBox="0 0 59 59" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g filter="url(#filter0_b_1406_2011)">
-<rect x="-0.000183105" y="0.454575" width="58.1818" height="58.1818" rx="29.0909" fill="white" fill-opacity="0.1"/>
-<path d="M23.3619 20.5052C22.3199 20.5464 21.3635 21.3965 21.3635 22.5418V36.5492C21.3635 38.0763 23.0647 39.0782 24.4006 38.3381L37.0408 31.3344C38.4151 30.5729 38.4151 28.5181 37.0408 27.7566L24.4006 20.7529C24.0666 20.5679 23.7092 20.4914 23.3619 20.5052Z" fill="white" fill-opacity="0.5"/>
-</g>
-<defs>
-<filter id="filter0_b_1406_2011" x="-36.3638" y="-35.9091" width="130.909" height="130.909" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-<feFlood flood-opacity="0" result="BackgroundImageFix"/>
-<feGaussianBlur in="BackgroundImageFix" stdDeviation="18.1818"/>
-<feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur_1406_2011"/>
-<feBlend mode="normal" in="SourceGraphic" in2="effect1_backgroundBlur_1406_2011" result="shape"/>
-</filter>
-</defs>
-</svg>
-</div>
-
+                  <svg
+                    width="59"
+                    height="59"
+                    viewBox="0 0 59 59"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <g filter="url(#filter0_b_1406_2011)">
+                      <rect
+                        x="-0.000183105"
+                        y="0.454575"
+                        width="58.1818"
+                        height="58.1818"
+                        rx="29.0909"
+                        fill="white"
+                        fill-opacity="0.1"
+                      />
+                      <path
+                        d="M23.3619 20.5052C22.3199 20.5464 21.3635 21.3965 21.3635 22.5418V36.5492C21.3635 38.0763 23.0647 39.0782 24.4006 38.3381L37.0408 31.3344C38.4151 30.5729 38.4151 28.5181 37.0408 27.7566L24.4006 20.7529C24.0666 20.5679 23.7092 20.4914 23.3619 20.5052Z"
+                        fill="white"
+                        fill-opacity="0.5"
+                      />
+                    </g>
+                    <defs>
+                      <filter
+                        id="filter0_b_1406_2011"
+                        x="-36.3638"
+                        y="-35.9091"
+                        width="130.909"
+                        height="130.909"
+                        filterUnits="userSpaceOnUse"
+                        color-interpolation-filters="sRGB"
+                      >
+                        <feFlood
+                          flood-opacity="0"
+                          result="BackgroundImageFix"
+                        />
+                        <feGaussianBlur
+                          in="BackgroundImageFix"
+                          stdDeviation="18.1818"
+                        />
+                        <feComposite
+                          in2="SourceAlpha"
+                          operator="in"
+                          result="effect1_backgroundBlur_1406_2011"
+                        />
+                        <feBlend
+                          mode="normal"
+                          in="SourceGraphic"
+                          in2="effect1_backgroundBlur_1406_2011"
+                          result="shape"
+                        />
+                      </filter>
+                    </defs>
+                  </svg>
+                </div>
+                <div className="absolute top-4 w-full px-4 flex items-center justify-between">
+                  <button className="text-xs font-thin z-10 bg-black bg-opacity-50 py-1 px-3 rounded-full flex items-center gap-2">
+                    <span className="flex w-2 h-2 bg-danger rounded-full"></span>
+                    {film.watching}
+                  </button>
+                  <button className="">
+                    <svg
+                      width="37"
+                      height="37"
+                      viewBox="0 0 37 37"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <rect
+                        x="0.363586"
+                        y="0.272751"
+                        width="36.3636"
+                        height="36.3636"
+                        rx="18.1818"
+                        fill="black"
+                        fill-opacity="0.6"
+                      />
+                      <path
+                        d="M10.3636 17.4744C10.3636 16.7213 10.9741 16.1108 11.7273 16.1108H13.0909L17.6828 11.77C18.0088 11.4618 18.5454 11.6929 18.5454 12.1416V24.7674C18.5454 25.2161 18.0088 25.4473 17.6828 25.139L13.0909 20.7983H11.7273C10.9741 20.7983 10.3636 20.1877 10.3636 19.4346V17.4744Z"
+                        fill="white"
+                      />
+                      <path
+                        d="M26.0454 15.7272L23.3182 18.4545M20.5909 21.1818L23.3182 18.4545M23.3182 18.4545L26.0454 21.1818M23.3182 18.4545L20.5909 15.7272"
+                        stroke="white"
+                        stroke-width="2.04545"
+                      />
+                    </svg>
+                  </button>
+                </div>
                 <div className="absolute card-bottom flex items-start gap-1 flex-col w-full pb-4 pt-72 px-4 bottom-0">
                   <h3 className="font-bold text-2xl">{film.name}</h3>
                   <div className="flex items-center gap-1">
