@@ -368,6 +368,24 @@ export default function Home() {
           ))}
         </div>
       </div>
+      
+      <div className="w-full flex flex-col items-center gap-2 mt-6">
+            <a
+              className="underline underline-offset-2 opacity-70 text-sm"
+              href="https://leonelngoya.com"
+              target="_blank"
+            >
+              Code by LN
+            </a>
+            <a
+              className="underline underline-offset-2 opacity-70 text-sm"
+              href="https://bento.me/emaniui"
+              target="_blank"
+            >
+              Design by EmaniUI
+            </a>
+          </div>
+       
       <div
         className="modal-location hidden fixed z-50 inset-0 bg-black bg-opacity-50 flex-col items-end justify-end"
         onClick={closeModalLocation}
