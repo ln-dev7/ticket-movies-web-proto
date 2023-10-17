@@ -484,7 +484,7 @@ export default function Home() {
               muted
               className="w-full h-full aspect-video px-4 bg-textmuted/10"
             >
-              <source src="/video.mov" />
+              <source src="/video.mp4" type="video/mp4" />
             </video>
           </div>
 
