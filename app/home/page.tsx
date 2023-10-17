@@ -15,14 +15,14 @@ export default function Home() {
       display: "flex",
     });
     gsap.to(".modal-language-container", {
-      duration: 0.5,
+      duration: 0.3,
       transform: "translateY(0)",
       ease: "power0.easeNone",
     });
   };
   const closeModalLanguage = () => {
     gsap.to(".modal-language-container", {
-      duration: 0.5,
+      duration: 0.3,
       transform: "translateY(100%)",
       ease: "power0.easeNone",
     });
@@ -298,12 +298,16 @@ export default function Home() {
         onClick={closeModalLanguage}
       >
         <div
-          className="bg-primary modal-language-container border border-[#6d9eff1a] bg-opacity-50 rounded-t-2xl rounded-r-2xl backdrop-blur-[20px] w-full p-4 h-96"
+          className="bg-primary modal-language-container border border-[#6d9eff1a]  rounded-t-2xl rounded-r-2xl w-full p-4 flex flex-col items-center"
           style={{
             transform: "translateY(100%)",
           }}
         >
-          <h1>hOME</h1>
+          <span className="w-full text-left py-4">Italien</span>
+          <div className="w-full h-[1px] bg-textmuted"></div>
+          <span className="w-full text-left py-4">Francais</span>
+          <div className="w-full h-[1px] bg-textmuted"></div>
+          <span className="w-full text-left py-4">Anglais</span>
         </div>
       </div>
     </main>
