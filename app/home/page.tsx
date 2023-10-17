@@ -53,6 +53,27 @@ export default function Home() {
       display: "none",
     });
   };
+  // modal login
+  const openModalLogin = () => {
+    gsap.to(".modal-login", {
+      display: "flex",
+    });
+    gsap.to(".modal-login-container", {
+      duration: 0.3,
+      transform: "translateY(0)",
+      ease: "power0.easeNone",
+    });
+  };
+  const closeModalLogin = () => {
+    gsap.to(".modal-login-container", {
+      duration: 0.3,
+      transform: "translateY(100%)",
+      ease: "power0.easeNone",
+    });
+    gsap.to(".modal-login", {
+      display: "none",
+    });
+  };
   return (
     <main className="home relative flex min-h-screen flex-col gap-4 items-center w-full  overflow-hidden pt-24 pb-16">
       <div className="flex backdrop-blur-[20px] fixed top-0 z-20 w-full items-center justify-between gap-0 bg-[#0c208080] pr-4 pt-2">
@@ -99,7 +120,12 @@ export default function Home() {
             <span className="font-bold text-sm">Eng</span>
           </button>
         </div>
-        <button className="primary font-bold shrink-0">Log in</button>
+        <button
+          onClick={openModalLogin}
+          className="login primary font-bold shrink-0"
+        >
+          Log in
+        </button>
       </div>
       <div className="flex items-center gap-2 w-full px-4 overflow-x-scroll tags">
         <button className="bg-white text-primary rounded-full py-3 px-4 text-sm flex items-center gap-1 shrink-0">
@@ -355,17 +381,43 @@ export default function Home() {
             <span className="text-sm">Yaoundé 1, Yaoundé Cameroun</span>
           </div>
           <div className="w-full p-4 border-b border-textmuted/30">
-            <span className="text-sm">M’PITA, Pointe Noire Congo</span>
+            <span className="text-sm">Bessengue, Douala Cameroun</span>
+          </div>
+          <div className="w-full p-4 border-b border-textmuted/30">
+            <span className="text-sm">WOLOGUEDE, Cotonou BENIN</span>
+          </div>
+          <div className="w-full p-4 border-b border-textmuted/30">
+            <span className="text-sm">POPO, Braazzaville Congo</span>
           </div>
           <div className="w-full p-4 border-b border-textmuted/30">
             <span className="text-sm">GODOPE, Lomé Togo</span>
           </div>
-          <div className="w-full p-4 border-b border-textmuted/30">
-            <span className="text-sm">MIDE, Lomé Togo</span>
-          </div>
           <div className="w-full p-4">
             <span className="text-sm">Teranga, Dakar Sénégal</span>
           </div>
+        </div>
+      </div>
+
+      <div
+        className="modal-login hidden fixed z-50 inset-0 bg-black bg-opacity-50 flex-col items-end justify-end"
+        onClick={closeModalLogin}
+      >
+        <div
+          className="bg-primary modal-login-container border border-[#6d9eff1a]  rounded-t-2xl rounded-r-2xl w-full p-4 flex flex-col items-center gap-1"
+          style={{
+            transform: "translateY(100%)",
+          }}
+        >
+          <h2 className="font-semibold text-lg">Login</h2>
+          <p className="text-textmuted text-sm">Acces pour payer les tickets</p>
+          <div className="relative w-full my-2">
+            <input
+              type="text"
+              placeholder="Numero de tel"
+              className="border border-textmuted/30 p-3 text-textmuted/30 placeholder:text-textmuted/30 rounded-lg w-full bg-transparent outline-none"
+            />
+          </div>
+          <button className="primary w-full h-[50px]">Continuer</button>
         </div>
       </div>
 
