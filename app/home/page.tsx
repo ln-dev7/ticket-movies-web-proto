@@ -2,13 +2,34 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import gsap from "gsap";
 import { Splide, SplideTrack, SplideSlide } from "@splidejs/react-splide";
 import { films } from "../../constants/films";
 import "@splidejs/react-splide/css";
 
 export default function Home() {
+  const tl = gsap.timeline();
+  const openModalLanguage = () => {
+    gsap.to(".modal-language", {
+      display: "flex",
+    });
+    gsap.to(".modal-language-container", {
+      duration: 0.5,
+      transform: "translateY(0)",
+      ease: "power0.easeNone",
+    });
+  };
+  const closeModalLanguage = () => {
+    gsap.to(".modal-language-container", {
+      duration: 0.5,
+      transform: "translateY(100%)",
+      ease: "power0.easeNone",
+    });
+    gsap.to(".modal-language", {
+      display: "none",
+    });
+  };
   return (
     <main className="home relative flex min-h-screen flex-col gap-4 items-center w-full  overflow-hidden pt-24 pb-16">
       <div className="flex backdrop-blur-[20px] fixed top-0 z-20 w-full items-center justify-between gap-0 bg-[#0c208080] pr-4 pt-2">
@@ -16,7 +37,7 @@ export default function Home() {
           <img src="/favicon.svg" alt="logo" />
         </Link>
         <div className="w-full flex items-center justify-center mr-4 gap-2">
-          <button className="flex items-center gap-2">
+          <button className="localisation flex items-center gap-2">
             <svg
               className="block mb-1"
               width="18"
@@ -32,7 +53,10 @@ export default function Home() {
             </svg>
             <span className="font-bold text-sm">Bessengue</span>
           </button>
-          <button className="flex items-center gap-2">
+          <button
+            onClick={openModalLanguage}
+            className="language flex items-center gap-2"
+          >
             <svg
               className="block mb-1"
               width="20"
@@ -179,7 +203,7 @@ export default function Home() {
                   </svg>
                 </div>
                 <div className="absolute top-4 w-full px-4 flex items-center justify-between">
-                  <button className="text-xs font-thin z-10 bg-black bg-opacity-50 py-1 px-3 rounded-full flex items-center gap-2">
+                  <button className="text-xs font-light z-10 bg-black bg-opacity-50 py-1 px-3 rounded-full flex items-center gap-2">
                     <span className="flex w-2 h-2 bg-danger rounded-full"></span>
                     {film.watching}
                   </button>
@@ -258,12 +282,28 @@ export default function Home() {
                   src={film.image}
                   alt="image"
                 />
-                <button className="bg-danger top-2 right-2 absolute text-sm py-1 px-2 rounded-lg font-semibold">{film.time}</button>
+                <button className="bg-danger top-2 right-2 absolute text-sm py-1 px-2 rounded-lg font-semibold">
+                  {film.time}
+                </button>
               </div>
               <h3 className="text-lg font-bold mt-2">{film.name}</h3>
               <p className="text-textmuted text-md"> {film.type}</p>
             </div>
           ))}
+        </div>
+      </div>
+
+      <div
+        className="modal-language hidden fixed z-50 inset-0 bg-black bg-opacity-50 flex-col items-end justify-end"
+        onClick={closeModalLanguage}
+      >
+        <div
+          className="bg-primary modal-language-container border border-[#6d9eff1a] bg-opacity-50 rounded-t-2xl rounded-r-2xl backdrop-blur-[20px] w-full p-4 h-96"
+          style={{
+            transform: "translateY(100%)",
+          }}
+        >
+          <h1>hOME</h1>
         </div>
       </div>
     </main>
