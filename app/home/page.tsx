@@ -5,12 +5,12 @@ import Link from "next/link";
 import { useEffect } from "react";
 import gsap from "gsap";
 import { Splide, SplideTrack, SplideSlide } from "@splidejs/react-splide";
-import { news } from "../../constants/news";
+import { films } from "../../constants/films";
 import "@splidejs/react-splide/css";
 
 export default function Home() {
   return (
-    <main className="home relative flex min-h-screen flex-col gap-4 items-center w-full  overflow-hidden pt-24">
+    <main className="home relative flex min-h-screen flex-col gap-4 items-center w-full  overflow-hidden pt-24 pb-16">
       <div className="flex backdrop-blur-[20px] fixed top-0 z-20 w-full items-center justify-between gap-0 bg-[#0c208080] pr-4 pt-2">
         <Link href="/" className="shrink-0">
           <img src="/favicon.svg" alt="logo" />
@@ -98,7 +98,7 @@ export default function Home() {
           </svg>
         </button>
       </div>
-      <div className="w-full flex items-center justify-center">
+      <div className="w-full flex items-center justify-center pb-[40px]">
         <Splide
           options={{
             fixedWidth: "310px",
@@ -111,7 +111,7 @@ export default function Home() {
           }}
           aria-label="Photos"
         >
-          {news.map((film, index) => (
+          {films.map((film, index) => (
             <SplideSlide key={index}>
               <div className="card relative w-full h-full">
                 <Image
@@ -229,6 +229,42 @@ export default function Home() {
             </SplideSlide>
           ))}
         </Splide>
+      </div>
+      <div className="w-full flex flex-col items-center gap-4 px-4 mt-2">
+        <div className="w-full flex items-center justify-between gap-4 ">
+          <h3 className="font-bold text-xl">Semaine du 17 - 23 Oct</h3>
+
+          <svg
+            width="40"
+            height="40"
+            viewBox="0 0 40 40"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M18.25 11C14.2578 11 11 14.2578 11 18.25C11 22.2422 14.2578 25.5 18.25 25.5C19.8866 25.5 21.3945 24.9465 22.6104 24.0254L27.293 28.707C27.3851 28.803 27.4955 28.8796 27.6176 28.9324C27.7397 28.9852 27.8712 29.0131 28.0042 29.0144C28.1373 29.0158 28.2692 28.9906 28.3924 28.9403C28.5156 28.89 28.6275 28.8157 28.7216 28.7216C28.8157 28.6275 28.89 28.5156 28.9403 28.3924C28.9906 28.2692 29.0158 28.1373 29.0144 28.0042C29.0131 27.8712 28.9852 27.7397 28.9324 27.6176C28.8796 27.4955 28.803 27.3851 28.707 27.293L24.0254 22.6104C24.9465 21.3945 25.5 19.8866 25.5 18.25C25.5 14.2578 22.2422 11 18.25 11ZM18.25 13C21.1613 13 23.5 15.3387 23.5 18.25C23.5 19.6479 22.957 20.9103 22.0742 21.8486C21.9883 21.9108 21.9128 21.9863 21.8506 22.0723C20.9121 22.9562 19.6489 23.5 18.25 23.5C15.3387 23.5 13 21.1613 13 18.25C13 15.3387 15.3387 13 18.25 13Z"
+              fill="#637394"
+            />
+          </svg>
+        </div>
+        <div className="w-full grid grid-cols-2 gap-4">
+          {films.map((film, index) => (
+            <div className="w-full flex flex-col items-start gap-0" key={index}>
+              <div className="w-full relative h-[230px] overflow-hidden rounded-lg">
+                <Image
+                  className="bg-textmain w-full h-full object-cover"
+                  width={310}
+                  height={240}
+                  src={film.image}
+                  alt="image"
+                />
+                <button className="bg-danger top-2 right-2 absolute text-sm py-1 px-2 rounded-lg font-semibold">{film.time}</button>
+              </div>
+              <h3 className="text-lg font-bold mt-2">{film.name}</h3>
+              <p className="text-textmuted text-md"> {film.type}</p>
+            </div>
+          ))}
+        </div>
       </div>
     </main>
   );
