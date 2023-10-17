@@ -12,7 +12,7 @@ const config: Config = {
         sora: ["var(--font-sora)"],
       },
       colors: {
-        primary: "#0A1340",
+        primary: "#0A1445",
         textmain: "#253554",
         textmuted: "#637394",
         danger: "#BC002E"

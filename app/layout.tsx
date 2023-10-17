@@ -22,7 +22,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`font-sora bg-primary text-white ${sora.variable}`}>
+      <body
+        className={`font-sora bg-primary text-white 
+       ${sora.variable}
+      `}
+      >
         <main className="flex sm:hidden">{children}</main>
         <main className="hidden sm:flex min-h-screen flex-col items-center justify-center gap-6 p-24">
           <a href="#" target="_blank">

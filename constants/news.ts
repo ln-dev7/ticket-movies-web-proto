@@ -5,6 +5,7 @@ export const news = [
     author: "AntoineDaniel",
     description: "Ace Attorney Apollo Justice",
     tags: ["Francais", "Fun", "Animé"],
+    watching: "13.2K"
   },
   {
     name: "Les Trolls",
@@ -12,6 +13,7 @@ export const news = [
     author: "AntoineDaniel",
     description: "Ace Attorney Apollo Justice",
     tags: ["Francais", "Enquiête", "Feur"],
+    watching: "2.6K"
   },
   {
     name: "SIRA",
@@ -19,6 +21,7 @@ export const news = [
     author: "AntoineDaniel",
     description: "Ace Attorney Apollo Justice",
     tags: ["Francais", "Fun", "Animé"],
+    watching: "45K"
   },
   {
     name: "Five Nights",
@@ -26,5 +29,6 @@ export const news = [
     author: "AntoineDaniel",
     description: "Ace Attorney Apollo Justice",
     tags: ["Francais", "Fun", "Animé"],
+    watching: "400.3K"
   },
 ];

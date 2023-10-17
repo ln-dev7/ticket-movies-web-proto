@@ -10,8 +10,8 @@ import "@splidejs/react-splide/css";
 
 export default function Home() {
   return (
-    <main className="home relative flex min-h-screen flex-col gap-6 items-center w-full  overflow-hidden">
-      <div className="flex w-full items-center justify-between gap-0 bg-[#0B1A62] pr-4 pt-2">
+    <main className="home relative flex min-h-screen flex-col gap-4 items-center w-full  overflow-hidden pt-24">
+      <div className="flex backdrop-blur-[20px] fixed top-0 z-20 w-full items-center justify-between gap-0 bg-[#0c208080] pr-4 pt-2">
         <Link href="/" className="shrink-0">
           <img src="/favicon.svg" alt="logo" />
         </Link>
@@ -51,7 +51,7 @@ export default function Home() {
         </div>
         <button className="primary font-bold shrink-0">Log in</button>
       </div>
-      <div className="flex items-center gap-2 w-full px-4 overflow-x-scroll">
+      <div className="flex items-center gap-2 w-full px-4 overflow-x-scroll tags">
         <button className="bg-white text-primary rounded-full py-3 px-4 text-sm flex items-center gap-1 shrink-0">
           <span>Les nouveautés</span>
           <svg
@@ -113,7 +113,45 @@ export default function Home() {
         >
           {news.map((film, index) => (
             <SplideSlide key={index}>
-              <Image className="bg-textmain" width={310} height={240} src={film.image} alt="image" />
+              <div className="card relative w-full h-full">
+                <Image
+                  className="bg-textmain"
+                  width={310}
+                  height={240}
+                  src={film.image}
+                  alt="image"
+                />
+                <div className="absolute z-20 bg-white rounded-full bg-opacity-40 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center">
+                <svg width="59" height="59" viewBox="0 0 59 59" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g filter="url(#filter0_b_1406_2011)">
+<rect x="-0.000183105" y="0.454575" width="58.1818" height="58.1818" rx="29.0909" fill="white" fill-opacity="0.1"/>
+<path d="M23.3619 20.5052C22.3199 20.5464 21.3635 21.3965 21.3635 22.5418V36.5492C21.3635 38.0763 23.0647 39.0782 24.4006 38.3381L37.0408 31.3344C38.4151 30.5729 38.4151 28.5181 37.0408 27.7566L24.4006 20.7529C24.0666 20.5679 23.7092 20.4914 23.3619 20.5052Z" fill="white" fill-opacity="0.5"/>
+</g>
+<defs>
+<filter id="filter0_b_1406_2011" x="-36.3638" y="-35.9091" width="130.909" height="130.909" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feGaussianBlur in="BackgroundImageFix" stdDeviation="18.1818"/>
+<feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur_1406_2011"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_backgroundBlur_1406_2011" result="shape"/>
+</filter>
+</defs>
+</svg>
+</div>
+
+                <div className="absolute card-bottom flex items-start gap-1 flex-col w-full pb-4 pt-72 px-4 bottom-0">
+                  <h3 className="font-bold text-2xl">{film.name}</h3>
+                  <div className="flex items-center gap-1">
+                    {film.tags.map((tag, index) => (
+                      <span
+                        className="text-[#BF94FF] bg-white bg-opacity-[0.08] py-1 px-2 text-xs rounded-full font-semibold"
+                        key={index}
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
             </SplideSlide>
           ))}
         </Splide>
