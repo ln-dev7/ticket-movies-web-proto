@@ -74,6 +74,27 @@ export default function Home() {
       display: "none",
     });
   };
+  // modal video
+  const openModalVideo = () => {
+    gsap.to(".modal-video", {
+      display: "flex",
+    });
+    gsap.to(".modal-video-container", {
+      duration: 0.3,
+      transform: "translateY(0)",
+      ease: "power0.easeNone",
+    });
+  };
+  const closeModalVideo = () => {
+    gsap.to(".modal-video-container", {
+      duration: 0.3,
+      transform: "translateY(100%)",
+      ease: "power0.easeNone",
+    });
+    gsap.to(".modal-video", {
+      display: "none",
+    });
+  };
   return (
     <main className="home relative flex min-h-screen flex-col gap-4 items-center w-full  overflow-hidden pt-24 pb-16">
       <div className="flex backdrop-blur-[20px] fixed top-0 z-20 w-full items-center justify-between gap-0 bg-[#0c208080] pr-4 pt-2">
@@ -189,7 +210,10 @@ export default function Home() {
         >
           {films.map((film, index) => (
             <SplideSlide key={index}>
-              <div className="card relative w-full h-full">
+              <div
+                className="card relative w-full h-full"
+                onClick={openModalVideo}
+              >
                 <Image
                   className="bg-textmain"
                   width={310}
@@ -436,6 +460,35 @@ export default function Home() {
           <span className="w-full text-left py-4 text-sm">Francais</span>
           <div className="w-full h-[1px] bg-textmuted/30"></div>
           <span className="w-full text-left py-4 text-sm">Anglais</span>
+        </div>
+      </div>
+
+      <div
+        className="modal-video hidden fixed z-50 inset-0 bg-black bg-opacity-50 flex-col items-end justify-end"
+        onClick={closeModalVideo}
+      >
+        <div
+          className="bg-primary modal-video-container border border-[#6d9eff1a]  rounded-t-2xl rounded-r-2xl w-full p-4 flex flex-col items-center"
+          style={{
+            transform: "translateY(100%)",
+          }}
+        >
+          <h2 className="font-semibold text-lg">Paw Patrol Extrait</h2>
+          <p className="text-textmuted text-sm">
+            Regardez un extrait de la Paw Patrol.
+          </p>
+          <div className="my-2 w-full h-full flex items-center justify-center overflow-hidden">
+            <video
+              autoPlay
+              loop
+              muted
+              className="w-full h-full aspect-video px-4 bg-textmuted/10"
+            >
+              <source src="/video.mov" />
+            </video>
+          </div>
+
+          <button className="primary w-full h-[50px]">Fermer</button>
         </div>
       </div>
     </main>
