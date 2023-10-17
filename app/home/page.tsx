@@ -10,6 +10,7 @@ import "@splidejs/react-splide/css";
 
 export default function Home() {
   const tl = gsap.timeline();
+  // modal language
   const openModalLanguage = () => {
     gsap.to(".modal-language", {
       display: "flex",
@@ -30,6 +31,28 @@ export default function Home() {
       display: "none",
     });
   };
+
+  // modal location
+  const openModalLocation = () => {
+    gsap.to(".modal-location", {
+      display: "flex",
+    });
+    gsap.to(".modal-location-container", {
+      duration: 0.3,
+      transform: "translateY(0)",
+      ease: "power0.easeNone",
+    });
+  };
+  const closeModalLocation = () => {
+    gsap.to(".modal-location-container", {
+      duration: 0.3,
+      transform: "translateY(100%)",
+      ease: "power0.easeNone",
+    });
+    gsap.to(".modal-location", {
+      display: "none",
+    });
+  };
   return (
     <main className="home relative flex min-h-screen flex-col gap-4 items-center w-full  overflow-hidden pt-24 pb-16">
       <div className="flex backdrop-blur-[20px] fixed top-0 z-20 w-full items-center justify-between gap-0 bg-[#0c208080] pr-4 pt-2">
@@ -37,7 +60,10 @@ export default function Home() {
           <img src="/favicon.svg" alt="logo" />
         </Link>
         <div className="w-full flex items-center justify-center mr-4 gap-2">
-          <button className="localisation flex items-center gap-2">
+          <button
+            onClick={openModalLocation}
+            className="localisation flex items-center gap-2"
+          >
             <svg
               className="block mb-1"
               width="18"
@@ -274,7 +300,7 @@ export default function Home() {
         <div className="w-full grid grid-cols-2 gap-4">
           {films.map((film, index) => (
             <div className="w-full flex flex-col items-start gap-0" key={index}>
-              <div className="w-full relative h-[230px] overflow-hidden rounded-lg">
+              <div className="week-card-image w-full relative h-[230px] overflow-hidden rounded-lg">
                 <Image
                   className="bg-textmain w-full h-full object-cover"
                   width={310}
@@ -292,6 +318,56 @@ export default function Home() {
           ))}
         </div>
       </div>
+      <div
+        className="modal-location hidden fixed z-50 inset-0 bg-black bg-opacity-50 flex-col items-end justify-end"
+        onClick={closeModalLocation}
+      >
+        <div
+          className="bg-primary modal-location-container border border-[#6d9eff1a]  rounded-t-2xl rounded-r-2xl w-full p-4 flex flex-col items-center"
+          style={{
+            transform: "translateY(100%)",
+          }}
+        >
+          <div className="relative w-full mb-2">
+            <svg
+              className="absolute top-1/2 left-4 -translate-y-1/2"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M10.25 3C6.25778 3 3 6.25778 3 10.25C3 14.2422 6.25778 17.5 10.25 17.5C11.8866 17.5 13.3945 16.9465 14.6104 16.0254L19.293 20.707C19.3851 20.803 19.4955 20.8796 19.6176 20.9324C19.7397 20.9852 19.8712 21.0131 20.0042 21.0144C20.1373 21.0158 20.2692 20.9906 20.3924 20.9403C20.5156 20.89 20.6275 20.8157 20.7216 20.7216C20.8157 20.6275 20.89 20.5156 20.9403 20.3924C20.9906 20.2692 21.0158 20.1373 21.0144 20.0042C21.0131 19.8712 20.9852 19.7397 20.9324 19.6176C20.8796 19.4955 20.803 19.3851 20.707 19.293L16.0254 14.6104C16.9465 13.3945 17.5 11.8866 17.5 10.25C17.5 6.25778 14.2422 3 10.25 3ZM10.25 5C13.1613 5 15.5 7.33866 15.5 10.25C15.5 11.6479 14.957 12.9103 14.0742 13.8486C13.9883 13.9108 13.9128 13.9863 13.8506 14.0723C12.9121 14.9562 11.6489 15.5 10.25 15.5C7.33866 15.5 5 13.1613 5 10.25C5 7.33866 7.33866 5 10.25 5Z"
+                fill="#637394"
+              />
+            </svg>
+            <input
+              type="text"
+              placeholder="Recherche"
+              className="border border-textmuted/30 py-3 pl-12 text-textmuted/30 placeholder:text-textmuted/30 pr-3 rounded-lg w-full bg-transparent outline-none"
+            />
+          </div>
+          <div className="w-full p-4 border-b border-textmuted/30">
+            <span className="text-sm">REBERO, Kigali Rwanda</span>
+          </div>
+          <div className="w-full p-4 border-b border-textmuted/30">
+            <span className="text-sm">Yaoundé 1, Yaoundé Cameroun</span>
+          </div>
+          <div className="w-full p-4 border-b border-textmuted/30">
+            <span className="text-sm">M’PITA, Pointe Noire Congo</span>
+          </div>
+          <div className="w-full p-4 border-b border-textmuted/30">
+            <span className="text-sm">GODOPE, Lomé Togo</span>
+          </div>
+          <div className="w-full p-4 border-b border-textmuted/30">
+            <span className="text-sm">MIDE, Lomé Togo</span>
+          </div>
+          <div className="w-full p-4">
+            <span className="text-sm">Teranga, Dakar Sénégal</span>
+          </div>
+        </div>
+      </div>
 
       <div
         className="modal-language hidden fixed z-50 inset-0 bg-black bg-opacity-50 flex-col items-end justify-end"
@@ -303,11 +379,11 @@ export default function Home() {
             transform: "translateY(100%)",
           }}
         >
-          <span className="w-full text-left py-4">Italien</span>
-          <div className="w-full h-[1px] bg-textmuted"></div>
-          <span className="w-full text-left py-4">Francais</span>
-          <div className="w-full h-[1px] bg-textmuted"></div>
-          <span className="w-full text-left py-4">Anglais</span>
+          <span className="w-full text-left py-4 text-sm">Italien</span>
+          <div className="w-full h-[1px] bg-textmuted/30"></div>
+          <span className="w-full text-left py-4 text-sm">Francais</span>
+          <div className="w-full h-[1px] bg-textmuted/30"></div>
+          <span className="w-full text-left py-4 text-sm">Anglais</span>
         </div>
       </div>
     </main>
