@@ -23,7 +23,7 @@ export default function Start() {
       });
   }, []);
 
-  return (
+  return ( 
     <main className="splash relative flex h-screen flex-col items-center w-full overflow-hidden">
       <div className="one absolute h-full w-full flex items-center justify-center bg-white">
         <a className="z-10" href="#" target="_blank">
@@ -68,7 +68,7 @@ export default function Start() {
           className="w-full h-full object-cover"
         />
         <div className="splash-bottom flex flex-col items-center absolute bottom-0 px-8 pb-16 pt-96 gap-20 w-full">
-          <Link href="/home" className="primary w-full">
+          <Link href="/home" className="primary w-full h-[50px]">
             Commencez
           </Link>
           <div className="w-full flex flex-col items-center gap-2">

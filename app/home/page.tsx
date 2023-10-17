@@ -408,7 +408,7 @@ export default function Home() {
             transform: "translateY(100%)",
           }}
         >
-          <h2 className="font-semibold text-lg">Login</h2>
+          <h2 className="font-semibold text-lg">Se connecter</h2>
           <p className="text-textmuted text-sm">Acces pour payer les tickets</p>
           <div className="relative w-full my-2">
             <input
