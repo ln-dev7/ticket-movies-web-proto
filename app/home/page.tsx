@@ -98,8 +98,8 @@ export default function Home() {
   return (
     <main className="home relative flex min-h-screen flex-col gap-4 items-center w-full  overflow-hidden pt-24 pb-16">
       <div className="flex backdrop-blur-[20px] fixed top-0 z-20 w-full items-center justify-between gap-0 bg-[#0c208080] pr-4 pt-2">
-        <Link href="/" className="shrink-0">
-          <img src="/favicon.svg" alt="logo" />
+        <Link href="/" className="shrink-0 pl-8 font-bold text-md">
+          TM
         </Link>
         <div className="w-full flex items-center justify-center mr-4 gap-2">
           <button

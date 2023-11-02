@@ -29,8 +29,8 @@ export default function RootLayout({
       >
         <main className="flex sm:hidden">{children}</main>
         <main className="hidden sm:flex min-h-screen flex-col items-center justify-center gap-6 p-24">
-          <a href="#" target="_blank">
-            <img src="/logo.svg" alt="logo" />
+          <a href="#" className="underline underline-offset-2" target="_blank">
+            Ticket Movies
           </a>
           <div className="flex items-center flex-col gap-2">
             <h1 className="text-2xl font-semibold">
